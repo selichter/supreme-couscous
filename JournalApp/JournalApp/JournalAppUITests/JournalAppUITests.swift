@@ -8,35 +8,55 @@
 import XCTest
 
 class JournalAppUITests: XCTestCase {
+    let app = XCUIApplication()
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+    override func setUp() {
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func testPromptIsDisplayedOnHomeFeed() throws {
+        XCTAssertEqual(app.staticTexts["category"].label, "Self-Discovery")
+        XCTAssertEqual(app.staticTexts["prompt"].label, "What are you looking to gain from building a journaling habit?")
     }
+    
+    func testTappingRefreshIconChangesPrompt() {
+        let initialPrompt = app.staticTexts["prompt"].label
+        XCTAssertEqual(initialPrompt, "What are you looking to gain from building a journaling habit?")
+        app.images["Refresh"].tap()
+        
+        XCTAssertNotEqual(initialPrompt, app.staticTexts["prompt"].label)
+        
+    }
+    
+    func testNavigateToPromptDetailViewAndVerifyElements() {
+        app.staticTexts["prompt"].tap()
+        
+        app.staticTexts["prompt"].waitForExistence(timeout: 2)
+        XCTAssertEqual(app.staticTexts["prompt"].label, "What are you looking to gain from building a journaling habit?")
+        
+        XCTAssert(app.staticTexts["Num of Times Used"].exists)
+        XCTAssertEqual(app.staticTexts["count"].label, "0")
+        
+        XCTAssert(app.staticTexts["Last Used"].exists)
+        XCTAssertEqual(app.staticTexts["lastUsed"].label, "-")
+        
+        XCTAssert(app.staticTexts["Category"].exists)
+        XCTAssertEqual(app.staticTexts["category"].label, "Self-Discovery")
+        
+        let entryText = "Sample Entry Text"
+        let entryTextView = app.textViews["entryTextfield"]
+        entryTextView.doubleTap()
+        entryTextView.typeText(entryText)
+        app.buttons["Save Entry"].tap()
+        
+        XCTAssertEqual(app.staticTexts["count"].label, "1")
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "MMM dd, yyyy"
+        let expectedDate = dateformat.string(from: Date())
+        XCTAssertEqual(app.staticTexts["lastUsed"].label, expectedDate)
+        
+        app.navigationBars.buttons["Back"].tap()
+        XCTAssert(app.staticTexts[entryText].exists)
+    }
+
 }

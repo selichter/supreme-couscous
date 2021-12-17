@@ -11,7 +11,7 @@ import SwiftUI
 struct JournalAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(store: Store(value: AppState(), reducer: appReducer))
         }
     }
 }
