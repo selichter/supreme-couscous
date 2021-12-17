@@ -7,47 +7,35 @@
 
 import Foundation
 import SwiftUI
+import Models
 
 struct AppState {
-    var displayPrompt: Prompt = Prompt(id: 20,
-                                       text: "What are you looking to gain from building a journaling habit?",
+    var displayPrompt: Prompt = Prompt(text: "What are you looking to gain from building a journaling habit?",
                                        category: Category.selfDiscovery)
     var usedPrompts: [Prompt] = []
     var promptBacklog: [Prompt] = [
-        Prompt(id: 0,
-               text: "What do I know to be true that I didn’t know a year ago?",
+        Prompt(text: "What do I know to be true that I didn’t know a year ago?",
                category: Category.selfDiscovery),
-        Prompt(id: 1,
-               text: "What distractions get in the way of being my most productive?", category: Category.health),
-        Prompt(id: 2,
-               text: "When do I feel most in tune with myself?",
+        Prompt(text: "What distractions get in the way of being my most productive?", category: Category.health),
+        Prompt(text: "When do I feel most in tune with myself?",
                category: Category.selfDiscovery),
-        Prompt(id: 3,
-               text: "If someone described me, what would they say?",
+        Prompt(text: "If someone described me, what would they say?",
                category: Category.selfDiscovery),
-        Prompt(id: 4,
-               text: "What can wait until next week?",
+        Prompt(text: "What can wait until next week?",
                category: Category.selfDiscovery),
-        Prompt(id: 5,
-               text: "How does every part of my body feel in this moment?",
+        Prompt(text: "How does every part of my body feel in this moment?",
                category: Category.selfDiscovery),
-        Prompt(id: 6,
-               text: "What emotions am I holding on to?",
+        Prompt(text: "What emotions am I holding on to?",
                category: Category.managingEmotions),
-        Prompt(id: 7,
-               text: "How can I detach or neutralize this emotion?",
+        Prompt(text: "How can I detach or neutralize this emotion?",
                category: Category.managingEmotions),
-        Prompt(id: 8,
-               text: "Why am I doing X?",
+        Prompt(text: "Why am I doing X?",
                category: Category.managingEmotions),
-        Prompt(id: 9,
-               text: "Why am I feeling this way?",
+        Prompt(text: "Why am I feeling this way?",
                category: Category.managingEmotions),
-        Prompt(id: 10,
-               text: "What can wait until next week?",
+        Prompt(text: "What can wait until next week?",
                category: Category.managingEmotions),
-        Prompt(id: 11,
-               text: "What is causing these feelings?",
+        Prompt(text: "What is causing these feelings?",
                category: Category.managingEmotions)
     ]
     var entries: [Entry] = []

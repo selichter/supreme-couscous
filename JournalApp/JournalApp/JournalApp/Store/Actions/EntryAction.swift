@@ -8,5 +8,5 @@
 import Foundation
 
 enum EntryAction {
-    case createEntry(String, Date, Int)
+    case createEntry(String, Date, UUID)
 }

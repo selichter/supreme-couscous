@@ -28,11 +28,8 @@
 		DF82671D276C2CA10011E887 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82671C276C2CA10011E887 /* AppReducer.swift */; };
 		DF826720276C2CCF0011E887 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82671F276C2CCF0011E887 /* Date+Extension.swift */; };
 		DF826723276C2D030011E887 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826722276C2D030011E887 /* Spacing.swift */; };
-		DF826725276C2D3A0011E887 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826724276C2D3A0011E887 /* Prompt.swift */; };
-		DF826727276C2D6D0011E887 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826726276C2D6D0011E887 /* Category.swift */; };
 		DF826729276C2D920011E887 /* PromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826728276C2D920011E887 /* PromptsView.swift */; };
 		DF82672B276C2DB20011E887 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82672A276C2DB20011E887 /* HomeView.swift */; };
-		DF82672D276C2DCD0011E887 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82672C276C2DCD0011E887 /* Entry.swift */; };
 		DF82672F276C2EE20011E887 /* PromptReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82672E276C2EE20011E887 /* PromptReducerTests.swift */; };
 		DF826731276C2F1E0011E887 /* HomeFeedReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826730276C2F1E0011E887 /* HomeFeedReducerTests.swift */; };
 		DF826733276C2F6C0011E887 /* EntryReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826732276C2F6C0011E887 /* EntryReducerTests.swift */; };
@@ -80,11 +77,8 @@
 		DF82671C276C2CA10011E887 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		DF82671F276C2CCF0011E887 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		DF826722276C2D030011E887 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
-		DF826724276C2D3A0011E887 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
-		DF826726276C2D6D0011E887 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DF826728276C2D920011E887 /* PromptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptsView.swift; sourceTree = "<group>"; };
 		DF82672A276C2DB20011E887 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		DF82672C276C2DCD0011E887 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		DF82672E276C2EE20011E887 /* PromptReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptReducerTests.swift; sourceTree = "<group>"; };
 		DF826730276C2F1E0011E887 /* HomeFeedReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedReducerTests.swift; sourceTree = "<group>"; };
 		DF826732276C2F6C0011E887 /* EntryReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReducerTests.swift; sourceTree = "<group>"; };
@@ -150,11 +144,8 @@
 				DF8266C7276C21170011E887 /* ContentView.swift */,
 				DF8266C9276C211B0011E887 /* Assets.xcassets */,
 				DF8266CB276C211B0011E887 /* Preview Content */,
-				DF826724276C2D3A0011E887 /* Prompt.swift */,
-				DF826726276C2D6D0011E887 /* Category.swift */,
 				DF826728276C2D920011E887 /* PromptsView.swift */,
 				DF82672A276C2DB20011E887 /* HomeView.swift */,
-				DF82672C276C2DCD0011E887 /* Entry.swift */,
 			);
 			path = JournalApp;
 			sourceTree = "<group>";
@@ -389,12 +380,9 @@
 				DF8266C8276C21170011E887 /* ContentView.swift in Sources */,
 				DF826723276C2D030011E887 /* Spacing.swift in Sources */,
 				DF826719276C2C550011E887 /* AppState.swift in Sources */,
-				DF82672D276C2DCD0011E887 /* Entry.swift in Sources */,
 				DF826720276C2CCF0011E887 /* Date+Extension.swift in Sources */,
-				DF826725276C2D3A0011E887 /* Prompt.swift in Sources */,
 				DF82670B276C2B210011E887 /* PromptReducer.swift in Sources */,
 				DF82670F276C2BBE0011E887 /* EntryReducer.swift in Sources */,
-				DF826727276C2D6D0011E887 /* Category.swift in Sources */,
 				DF82671B276C2C7A0011E887 /* AppAction.swift in Sources */,
 				DF82672B276C2DB20011E887 /* HomeView.swift in Sources */,
 				DF826717276C2C350011E887 /* Store.swift in Sources */,

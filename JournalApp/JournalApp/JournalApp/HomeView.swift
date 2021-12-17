@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-
-import SwiftUI
+import Models
 
 struct HomeView: View {
     @ObservedObject var store: Store<AppState, AppAction>

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 func entryReducer(value: inout AppState, action: AppAction) -> Void {
     switch action {

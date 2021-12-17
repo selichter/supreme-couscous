@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 func promptReducer(value: inout AppState, action: AppAction) -> Void {
     switch action {

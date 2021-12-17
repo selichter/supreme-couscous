@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Models
 
 struct PromptsView: View {
     @ObservedObject var store: Store<AppState, AppAction>
