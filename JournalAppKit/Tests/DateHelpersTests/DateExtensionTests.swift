@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import JournalApp
+@testable import DateHelpers
 
 class DateExtensionTests: XCTestCase {
 

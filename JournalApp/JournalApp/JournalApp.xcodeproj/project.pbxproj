@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF7735CE276D144800D0ED45 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = DF7735CD276D144800D0ED45 /* ComposableArchitecture */; };
+		DF7735D32771361600D0ED45 /* DateHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = DF7735D22771361600D0ED45 /* DateHelpers */; };
 		DF8266C6276C21170011E887 /* JournalAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8266C5276C21170011E887 /* JournalAppApp.swift */; };
 		DF8266C8276C21170011E887 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8266C7276C21170011E887 /* ContentView.swift */; };
 		DF8266CA276C211B0011E887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF8266C9276C211B0011E887 /* Assets.xcassets */; };
@@ -21,13 +22,11 @@
 		DF826719276C2C550011E887 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826718276C2C550011E887 /* AppState.swift */; };
 		DF82671B276C2C7A0011E887 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82671A276C2C7A0011E887 /* AppAction.swift */; };
 		DF82671D276C2CA10011E887 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82671C276C2CA10011E887 /* AppReducer.swift */; };
-		DF826720276C2CCF0011E887 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82671F276C2CCF0011E887 /* Date+Extension.swift */; };
 		DF826723276C2D030011E887 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826722276C2D030011E887 /* Spacing.swift */; };
 		DF826729276C2D920011E887 /* PromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826728276C2D920011E887 /* PromptsView.swift */; };
 		DF82672B276C2DB20011E887 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82672A276C2DB20011E887 /* HomeView.swift */; };
 		DF82672F276C2EE20011E887 /* PromptReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82672E276C2EE20011E887 /* PromptReducerTests.swift */; };
 		DF826733276C2F6C0011E887 /* EntryReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826732276C2F6C0011E887 /* EntryReducerTests.swift */; };
-		DF826735276C2F980011E887 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826734276C2F980011E887 /* DateExtensionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,13 +62,11 @@
 		DF826718276C2C550011E887 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DF82671A276C2C7A0011E887 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		DF82671C276C2CA10011E887 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
-		DF82671F276C2CCF0011E887 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		DF826722276C2D030011E887 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		DF826728276C2D920011E887 /* PromptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptsView.swift; sourceTree = "<group>"; };
 		DF82672A276C2DB20011E887 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DF82672E276C2EE20011E887 /* PromptReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptReducerTests.swift; sourceTree = "<group>"; };
 		DF826732276C2F6C0011E887 /* EntryReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReducerTests.swift; sourceTree = "<group>"; };
-		DF826734276C2F980011E887 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF7735D32771361600D0ED45 /* DateHelpers in Frameworks */,
 				DF8266F5276C22A40011E887 /* Models in Frameworks */,
 				DF8266F3276C21A40011E887 /* JournalAppKit in Frameworks */,
 				DF7735CE276D144800D0ED45 /* ComposableArchitecture in Frameworks */,
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				DF826721276C2CEC0011E887 /* Styles */,
-				DF82671E276C2CBF0011E887 /* Utils */,
 				DF826707276C2AAB0011E887 /* Store */,
 				DF8266C5276C21170011E887 /* JournalAppApp.swift */,
 				DF8266C7276C21170011E887 /* ContentView.swift */,
@@ -151,7 +148,6 @@
 			children = (
 				DF82672E276C2EE20011E887 /* PromptReducerTests.swift */,
 				DF826732276C2F6C0011E887 /* EntryReducerTests.swift */,
-				DF826734276C2F980011E887 /* DateExtensionTests.swift */,
 			);
 			path = JournalAppTests;
 			sourceTree = "<group>";
@@ -200,14 +196,6 @@
 			path = Reducers;
 			sourceTree = "<group>";
 		};
-		DF82671E276C2CBF0011E887 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				DF82671F276C2CCF0011E887 /* Date+Extension.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		DF826721276C2CEC0011E887 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +224,7 @@
 				DF8266F2276C21A40011E887 /* JournalAppKit */,
 				DF8266F4276C22A40011E887 /* Models */,
 				DF7735CD276D144800D0ED45 /* ComposableArchitecture */,
+				DF7735D22771361600D0ED45 /* DateHelpers */,
 			);
 			productName = JournalApp;
 			productReference = DF8266C2276C21170011E887 /* JournalApp.app */;
@@ -357,7 +346,6 @@
 				DF8266C8276C21170011E887 /* ContentView.swift in Sources */,
 				DF826723276C2D030011E887 /* Spacing.swift in Sources */,
 				DF826719276C2C550011E887 /* AppState.swift in Sources */,
-				DF826720276C2CCF0011E887 /* Date+Extension.swift in Sources */,
 				DF82670B276C2B210011E887 /* PromptReducer.swift in Sources */,
 				DF82670F276C2BBE0011E887 /* EntryReducer.swift in Sources */,
 				DF82671B276C2C7A0011E887 /* AppAction.swift in Sources */,
@@ -374,7 +362,6 @@
 			files = (
 				DF82672F276C2EE20011E887 /* PromptReducerTests.swift in Sources */,
 				DF826733276C2F6C0011E887 /* EntryReducerTests.swift in Sources */,
-				DF826735276C2F980011E887 /* DateExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +697,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF7735CC276D144800D0ED45 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		DF7735D22771361600D0ED45 /* DateHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DateHelpers;
 		};
 		DF8266F2276C21A40011E887 /* JournalAppKit */ = {
 			isa = XCSwiftPackageProductDependency;
