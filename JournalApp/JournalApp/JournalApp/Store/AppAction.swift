@@ -9,6 +9,5 @@ import Foundation
 
 enum AppAction {
     case prompt(PromptsAction)
-    case homeFeed(HomeFeedAction)
     case entry(EntryAction)
 }

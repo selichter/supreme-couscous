@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct JournalAppApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView(store: Store(value: AppState(), reducer: appReducer))
+            ContentView(store: Store(
+                initialState: AppState(),
+                reducer: appReducer,
+                environment: AppEnvironment()
+              )
+            )
         }
     }
 }

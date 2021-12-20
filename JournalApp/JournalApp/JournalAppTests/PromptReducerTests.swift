@@ -7,54 +7,100 @@
 
 import XCTest
 @testable import JournalApp
+import Models
+import ComposableArchitecture
 
 class PromptReducerTests: XCTestCase {
     let expectedPromptText = "What are you looking to gain from building a journaling habit?"
+    let initialDisplayPrompt = Prompt(text: "A test Prompt", category: Category.health)
+    let promptTwo = Prompt(text: "Second Prompt", category: Category.money)
+    let promptThree = Prompt(text: "Third Prompt", category: Category.managingEmotions)
 
-    func testAdvancePromptActionUpdatesDisplayPrompt() {
-        var state = AppState()
-        let initialPrompt = state.displayPrompt
+    func testPromptStateDefaultValues() {
+        let appState = AppState()
         
-        promptReducer(value: &state, action: AppAction.prompt(.advancePrompt))
-
-        XCTAssertNotEqual(state.displayPrompt.id, initialPrompt.id)
-        XCTAssert(state.usedPrompts.contains(where: {$0.id == initialPrompt.id}))
+        XCTAssertEqual(appState.displayPrompt.text,  "What are you looking to gain from building a journaling habit?")
+        XCTAssertEqual(appState.promptBacklog.count, 12)
+        XCTAssertEqual(appState.usedPrompts, [])
+    }
+    
+    
+    func testAdvancePromptActionSetsNewDisplayPrompt() {
+        var state = AppState()
+        state.displayPrompt = initialDisplayPrompt
+        state.promptBacklog = [promptTwo, promptThree]
+        let store = TestStore(
+            initialState: state,
+            reducer: appReducer,
+            environment: AppEnvironment()
+        )
+        
+        store.send(.prompt(.advancePrompt)) {
+            $0.displayPrompt = self.promptTwo
+            $0.usedPrompts = [self.initialDisplayPrompt]
+            $0.promptBacklog = [self.promptThree]
+        }
+        
     }
     
     func testMarkAsUsedActionSetsTheDateAndCountForDisplayPrompt() {
-        var state = AppState()
-        XCTAssertNil(state.displayPrompt.lastUsed)
-        XCTAssertEqual(state.displayPrompt.timesUsed, 0)
-        XCTAssertEqual(state.displayPrompt.text, expectedPromptText)
-        
-        promptReducer(value: &state, action: AppAction.prompt(.markAsUsed))
-        
-        XCTAssertNotNil(state.displayPrompt.lastUsed)
-        XCTAssertEqual(state.displayPrompt.timesUsed, 1)
-        XCTAssertEqual(state.displayPrompt.text, expectedPromptText)
+        let state = AppState()
+        let store = TestStore(
+            initialState: state,
+            reducer: appReducer,
+            environment: AppEnvironment()
+        )
+        let date = Date()
+        store.send(.prompt(.markAsUsed(date))) {
+            $0.displayPrompt.lastUsed = date
+            $0.displayPrompt.timesUsed = 1
+        }
     }
-    
+
     func testToggleFavoriteSetsFavoriteToTrueIfItIsInitiallyFalse() {
-        var state = AppState()
-        XCTAssertFalse(state.displayPrompt.isFavorite)
-        XCTAssertEqual(state.displayPrompt.text, expectedPromptText)
         
-        promptReducer(value: &state, action: AppAction.prompt(.toggleFavorite))
-        
-        XCTAssert(state.displayPrompt.isFavorite)
-        XCTAssertEqual(state.displayPrompt.text, expectedPromptText)
+        let state = AppState()
+        let store = TestStore(
+            initialState: state,
+            reducer: appReducer,
+            environment: AppEnvironment()
+        )
+
+        store.send(.prompt(.toggleFavorite)) {
+            $0.displayPrompt.isFavorite = true
+        }
     }
-    
+
     func testToggleFavoriteSetsFavoriteToTrueIfItIsInitiallyTrue() {
+        
         var state = AppState()
         state.displayPrompt.isFavorite = true
-        XCTAssert(state.displayPrompt.isFavorite)
-        XCTAssertEqual(state.displayPrompt.text, expectedPromptText)
+        let store = TestStore(
+            initialState: state,
+            reducer: appReducer,
+            environment: AppEnvironment()
+        )
+
+        store.send(.prompt(.toggleFavorite)) {
+            $0.displayPrompt.isFavorite = false
+        }
+    }
+    
+    func testRefreshPromptSetsNewDisplayPromtButDoesNotAdvance() {
         
-        promptReducer(value: &state, action: AppAction.prompt(.toggleFavorite))
-        
-        XCTAssertFalse(state.displayPrompt.isFavorite)
-        XCTAssertEqual(state.displayPrompt.text, expectedPromptText)
+        var state = AppState()
+        state.displayPrompt = initialDisplayPrompt
+        state.promptBacklog = [promptTwo, promptThree]
+        let store = TestStore(
+            initialState: state,
+            reducer: appReducer,
+            environment: AppEnvironment()
+        )
+
+        store.send(.prompt(.refreshPrompt)) {
+            $0.displayPrompt = self.promptTwo
+            $0.promptBacklog = [self.promptThree, self.initialDisplayPrompt]
+        }
     }
 
 }

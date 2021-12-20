@@ -28,3 +28,14 @@ public struct Prompt: Identifiable {
         
     }
 }
+
+extension Prompt: Equatable {
+    public static func == (lhs: Prompt, rhs: Prompt) -> Bool {
+        return lhs.id == rhs.id &&
+        lhs.text == rhs.text &&
+        lhs.category == rhs.category &&
+        lhs.lastUsed == rhs.lastUsed &&
+        lhs.timesUsed == rhs.timesUsed &&
+        lhs.isFavorite == rhs.isFavorite
+    }
+}

@@ -8,17 +8,22 @@
 import Foundation
 
 public struct Entry: Identifiable {
-    public var id: UUID = UUID()
+    public var id: UUID
     public var text: String
     public var date: Date
     public var promptId: UUID
     
     public init(text: String,
                 date: Date,
-                promptId: UUID) {
+                promptId: UUID, id: UUID) {
         self.text = text
         self.date = date
         self.promptId = promptId
+        self.id = id
         
     }
+}
+
+extension Entry: Equatable {
+    
 }

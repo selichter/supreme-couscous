@@ -7,22 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF7735CE276D144800D0ED45 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = DF7735CD276D144800D0ED45 /* ComposableArchitecture */; };
 		DF8266C6276C21170011E887 /* JournalAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8266C5276C21170011E887 /* JournalAppApp.swift */; };
 		DF8266C8276C21170011E887 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8266C7276C21170011E887 /* ContentView.swift */; };
 		DF8266CA276C211B0011E887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF8266C9276C211B0011E887 /* Assets.xcassets */; };
 		DF8266CD276C211B0011E887 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF8266CC276C211B0011E887 /* Preview Assets.xcassets */; };
-		DF8266D7276C211B0011E887 /* JournalAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8266D6276C211B0011E887 /* JournalAppTests.swift */; };
 		DF8266E1276C211B0011E887 /* JournalAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8266E0276C211B0011E887 /* JournalAppUITests.swift */; };
 		DF8266E3276C211C0011E887 /* JournalAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8266E2276C211C0011E887 /* JournalAppUITestsLaunchTests.swift */; };
 		DF8266F3276C21A40011E887 /* JournalAppKit in Frameworks */ = {isa = PBXBuildFile; productRef = DF8266F2276C21A40011E887 /* JournalAppKit */; };
 		DF8266F5276C22A40011E887 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = DF8266F4276C22A40011E887 /* Models */; };
 		DF82670B276C2B210011E887 /* PromptReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82670A276C2B210011E887 /* PromptReducer.swift */; };
-		DF82670D276C2B860011E887 /* HomeFeedReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82670C276C2B860011E887 /* HomeFeedReducer.swift */; };
 		DF82670F276C2BBE0011E887 /* EntryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82670E276C2BBE0011E887 /* EntryReducer.swift */; };
-		DF826711276C2BE80011E887 /* PromptsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826710276C2BE80011E887 /* PromptsAction.swift */; };
-		DF826713276C2BFC0011E887 /* HomeFeedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826712276C2BFC0011E887 /* HomeFeedAction.swift */; };
-		DF826715276C2C180011E887 /* EntryAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826714276C2C180011E887 /* EntryAction.swift */; };
-		DF826717276C2C350011E887 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826716276C2C350011E887 /* Store.swift */; };
 		DF826719276C2C550011E887 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826718276C2C550011E887 /* AppState.swift */; };
 		DF82671B276C2C7A0011E887 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82671A276C2C7A0011E887 /* AppAction.swift */; };
 		DF82671D276C2CA10011E887 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82671C276C2CA10011E887 /* AppReducer.swift */; };
@@ -31,7 +26,6 @@
 		DF826729276C2D920011E887 /* PromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826728276C2D920011E887 /* PromptsView.swift */; };
 		DF82672B276C2DB20011E887 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82672A276C2DB20011E887 /* HomeView.swift */; };
 		DF82672F276C2EE20011E887 /* PromptReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF82672E276C2EE20011E887 /* PromptReducerTests.swift */; };
-		DF826731276C2F1E0011E887 /* HomeFeedReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826730276C2F1E0011E887 /* HomeFeedReducerTests.swift */; };
 		DF826733276C2F6C0011E887 /* EntryReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826732276C2F6C0011E887 /* EntryReducerTests.swift */; };
 		DF826735276C2F980011E887 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF826734276C2F980011E887 /* DateExtensionTests.swift */; };
 /* End PBXBuildFile section */
@@ -60,18 +54,12 @@
 		DF8266C9276C211B0011E887 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF8266CC276C211B0011E887 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DF8266D2276C211B0011E887 /* JournalAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JournalAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF8266D6276C211B0011E887 /* JournalAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalAppTests.swift; sourceTree = "<group>"; };
 		DF8266DC276C211B0011E887 /* JournalAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JournalAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8266E0276C211B0011E887 /* JournalAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalAppUITests.swift; sourceTree = "<group>"; };
 		DF8266E2276C211C0011E887 /* JournalAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DF8266F0276C21800011E887 /* JournalAppKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = JournalAppKit; path = ../../JournalAppKit; sourceTree = "<group>"; };
 		DF82670A276C2B210011E887 /* PromptReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptReducer.swift; sourceTree = "<group>"; };
-		DF82670C276C2B860011E887 /* HomeFeedReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedReducer.swift; sourceTree = "<group>"; };
 		DF82670E276C2BBE0011E887 /* EntryReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReducer.swift; sourceTree = "<group>"; };
-		DF826710276C2BE80011E887 /* PromptsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptsAction.swift; sourceTree = "<group>"; };
-		DF826712276C2BFC0011E887 /* HomeFeedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedAction.swift; sourceTree = "<group>"; };
-		DF826714276C2C180011E887 /* EntryAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryAction.swift; sourceTree = "<group>"; };
-		DF826716276C2C350011E887 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		DF826718276C2C550011E887 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DF82671A276C2C7A0011E887 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		DF82671C276C2CA10011E887 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
@@ -80,7 +68,6 @@
 		DF826728276C2D920011E887 /* PromptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptsView.swift; sourceTree = "<group>"; };
 		DF82672A276C2DB20011E887 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DF82672E276C2EE20011E887 /* PromptReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptReducerTests.swift; sourceTree = "<group>"; };
-		DF826730276C2F1E0011E887 /* HomeFeedReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedReducerTests.swift; sourceTree = "<group>"; };
 		DF826732276C2F6C0011E887 /* EntryReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReducerTests.swift; sourceTree = "<group>"; };
 		DF826734276C2F980011E887 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +79,7 @@
 			files = (
 				DF8266F5276C22A40011E887 /* Models in Frameworks */,
 				DF8266F3276C21A40011E887 /* JournalAppKit in Frameworks */,
+				DF7735CE276D144800D0ED45 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,9 +149,7 @@
 		DF8266D5276C211B0011E887 /* JournalAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				DF8266D6276C211B0011E887 /* JournalAppTests.swift */,
 				DF82672E276C2EE20011E887 /* PromptReducerTests.swift */,
-				DF826730276C2F1E0011E887 /* HomeFeedReducerTests.swift */,
 				DF826732276C2F6C0011E887 /* EntryReducerTests.swift */,
 				DF826734276C2F980011E887 /* DateExtensionTests.swift */,
 			);
@@ -197,9 +183,7 @@
 		DF826707276C2AAB0011E887 /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				DF826709276C2B100011E887 /* Actions */,
 				DF826708276C2B070011E887 /* Reducers */,
-				DF826716276C2C350011E887 /* Store.swift */,
 				DF826718276C2C550011E887 /* AppState.swift */,
 				DF82671A276C2C7A0011E887 /* AppAction.swift */,
 				DF82671C276C2CA10011E887 /* AppReducer.swift */,
@@ -211,20 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				DF82670A276C2B210011E887 /* PromptReducer.swift */,
-				DF82670C276C2B860011E887 /* HomeFeedReducer.swift */,
 				DF82670E276C2BBE0011E887 /* EntryReducer.swift */,
 			);
 			path = Reducers;
-			sourceTree = "<group>";
-		};
-		DF826709276C2B100011E887 /* Actions */ = {
-			isa = PBXGroup;
-			children = (
-				DF826710276C2BE80011E887 /* PromptsAction.swift */,
-				DF826712276C2BFC0011E887 /* HomeFeedAction.swift */,
-				DF826714276C2C180011E887 /* EntryAction.swift */,
-			);
-			path = Actions;
 			sourceTree = "<group>";
 		};
 		DF82671E276C2CBF0011E887 /* Utils */ = {
@@ -262,6 +235,7 @@
 			packageProductDependencies = (
 				DF8266F2276C21A40011E887 /* JournalAppKit */,
 				DF8266F4276C22A40011E887 /* Models */,
+				DF7735CD276D144800D0ED45 /* ComposableArchitecture */,
 			);
 			productName = JournalApp;
 			productReference = DF8266C2276C21170011E887 /* JournalApp.app */;
@@ -335,6 +309,9 @@
 				Base,
 			);
 			mainGroup = DF8266B9276C21170011E887;
+			packageReferences = (
+				DF7735CC276D144800D0ED45 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = DF8266C3276C21170011E887 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -385,14 +362,9 @@
 				DF82670F276C2BBE0011E887 /* EntryReducer.swift in Sources */,
 				DF82671B276C2C7A0011E887 /* AppAction.swift in Sources */,
 				DF82672B276C2DB20011E887 /* HomeView.swift in Sources */,
-				DF826717276C2C350011E887 /* Store.swift in Sources */,
 				DF82671D276C2CA10011E887 /* AppReducer.swift in Sources */,
 				DF826729276C2D920011E887 /* PromptsView.swift in Sources */,
-				DF826713276C2BFC0011E887 /* HomeFeedAction.swift in Sources */,
-				DF826715276C2C180011E887 /* EntryAction.swift in Sources */,
 				DF8266C6276C21170011E887 /* JournalAppApp.swift in Sources */,
-				DF82670D276C2B860011E887 /* HomeFeedReducer.swift in Sources */,
-				DF826711276C2BE80011E887 /* PromptsAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,9 +374,7 @@
 			files = (
 				DF82672F276C2EE20011E887 /* PromptReducerTests.swift in Sources */,
 				DF826733276C2F6C0011E887 /* EntryReducerTests.swift in Sources */,
-				DF8266D7276C211B0011E887 /* JournalAppTests.swift in Sources */,
 				DF826735276C2F980011E887 /* DateExtensionTests.swift in Sources */,
-				DF826731276C2F1E0011E887 /* HomeFeedReducerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,7 +694,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		DF7735CC276D144800D0ED45 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		DF7735CD276D144800D0ED45 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF7735CC276D144800D0ED45 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		DF8266F2276C21A40011E887 /* JournalAppKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JournalAppKit;

@@ -6,26 +6,31 @@
 //
 
 import XCTest
+import ComposableArchitecture
+import Models
 @testable import JournalApp
 
 class EntryReducerTests: XCTestCase {
 
     func testCreateEntryAddsEntryToEntriesInState() {
-        var state = AppState()
-        let initialPrompt = state.displayPrompt
         
+        let state = AppState()
+        let store = TestStore(
+            initialState: state,
+            reducer: appReducer,
+            environment: AppEnvironment()
+        )
         let entryText = "Entry Text"
-        let date = Date()
+        let entryDate = Date()
+        let entryId = UUID()
         
-        XCTAssertEqual(state.entries.count, 0)
-        entryReducer(value: &state, action: AppAction.entry(.createEntry(entryText, date, initialPrompt.id)))
+        let expectedEntry = Entry(text: entryText, date: entryDate, promptId: state.displayPrompt.id, id: entryId)
         
-        XCTAssertEqual(state.entries.count, 1)
-        let newEntry = state.entries.first
         
-        XCTAssertEqual(newEntry?.text, entryText)
-        XCTAssertEqual(newEntry?.date, date)
-        XCTAssertEqual(newEntry?.promptId, initialPrompt.id)
+        store.send(.entry(.createEntry(entryText, entryDate, state.displayPrompt.id, entryId))) {
+            $0.appEntries = [expectedEntry]
+            
+        }
     }
 
 }
