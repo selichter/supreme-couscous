@@ -12,7 +12,7 @@ import PromptsCore
 import AppStateCore
 
 struct HomeView: View {
-    let store: Store<PromptsState, PromptsAction>
+    let store: Store<AppState, AppAction>
     
     var body: some View {
         WithViewStore(self.store) { viewStore in
@@ -23,7 +23,7 @@ struct HomeView: View {
                             .font(.largeTitle)
                             .bold()
                         
-                        NavigationLink(destination: PromptsView(store: store)) {
+                        NavigationLink(destination: PromptsView(store: store, displayPrompt: viewStore.displayPrompt)) {
                             VStack{
                                 HStack {
                                     Text(viewStore.displayPrompt.category.rawValue)
@@ -31,7 +31,7 @@ struct HomeView: View {
                                     Spacer()
                                     Image(systemName: "arrow.clockwise")
                                         .onTapGesture {
-                                            viewStore.send(.refreshPrompt)
+                                            viewStore.send(.prompt(.refreshPrompt))
                                         }
                                 }
                                 .font(.body)
@@ -53,18 +53,18 @@ struct HomeView: View {
                         }
                     }
                     
-    //                VStack(alignment: .leading) {
-    //                    Text("Recent Entries")
-    //                    ForEach(store.value.entries) { entry in
-    //                        HStack {
-    //                            Text(entry.text)
-    //                            Spacer()
-    //                            Text(entry.date.getFormattedDate(format: "MMM dd, yyyy"))
-    //                        }
-    //
-    //                    }
-    //
-    //                }
+                    VStack(alignment: .leading) {
+                        Text("Recent Entries")
+                        ForEach(viewStore.appEntries) { entry in
+                            HStack {
+                                Text(entry.text)
+                                Spacer()
+                                Text(entry.date.getFormattedDate(format: "MMM dd, yyyy"))
+                            }
+    
+                        }
+    
+                    }
                 }
                 .padding(Spacing.defaultViewMargin/2)
             }

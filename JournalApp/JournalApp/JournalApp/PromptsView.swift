@@ -11,16 +11,18 @@ import ComposableArchitecture
 import DateHelpers
 import PromptsCore
 import AppStateCore
+import EntriesCore
 
 struct PromptsView: View {
-    let store: Store<PromptsState, PromptsAction>
+    let store: Store<AppState, AppAction>
     @State var textInput: String = "Write here..."
+    var displayPrompt: Prompt
     
     var body: some View {
         WithViewStore(self.store) { viewStore in
             ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(viewStore.displayPrompt.text)
+                    Text(displayPrompt.text)
                         .bold()
                         .multilineTextAlignment(.leading)
                         .font(.title)
@@ -33,7 +35,7 @@ struct PromptsView: View {
                         VStack(alignment: .leading) {
                             Text("Last Used")
                                 .font(.caption)
-                            Text(viewStore.displayPrompt.lastUsed?.getFormattedDate(format: "MMM dd, yyyy") ?? "-")
+                            Text(displayPrompt.lastUsed?.getFormattedDate(format: "MMM dd, yyyy") ?? "-")
                                 .font(.callout)
                                 .accessibilityIdentifier("lastUsed")
                         }
@@ -42,7 +44,7 @@ struct PromptsView: View {
                             Text("Num of Times Used")
                                 .font(.caption)
                                 
-                            Text("\(viewStore.displayPrompt.timesUsed)")
+                            Text("\(displayPrompt.timesUsed)")
                                 .font(.callout)
                                 .accessibilityIdentifier("count")
                         }
@@ -53,7 +55,7 @@ struct PromptsView: View {
                             Text("Category")
                                 .font(.caption)
                                 
-                            Text("\(viewStore.displayPrompt.category.rawValue)")
+                            Text("\(displayPrompt.category.rawValue)")
                                 .font(.callout)
                                 .accessibilityIdentifier("category")
                         }
@@ -75,10 +77,10 @@ struct PromptsView: View {
                                 
                             }
                         
-    //                    Button("Save Entry") {
-    //                        store.send(.entry(.createEntry(textInput, Date(), store.value.displayPrompt.id)))
-    //                        store.send(.prompt(.markAsUsed(Date())))
-    //                    }
+                        Button("Save Entry") {
+                            viewStore.send(.entry(.createEntry(textInput, Date(), displayPrompt.id, UUID())))
+                            viewStore.send(.prompt(.markAsUsed(Date())))
+                        }
 
                     }
 
