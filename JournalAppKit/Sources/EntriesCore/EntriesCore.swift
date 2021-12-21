@@ -10,25 +10,31 @@ import Models
 import ComposableArchitecture
 
 
-enum EntryAction {
+public enum EntryAction {
     case createEntry(String, Date, UUID, UUID)
 }
 
-struct EntriesEnvironment { }
+public struct EntriesEnvironment {
+    public init() {}
+}
 
 
-struct EntriesState {
-    var entries: [Entry] = []
+public struct EntriesState {
+    public var entries: [Entry] = []
+    
+    public init(entries: [Entry]) {
+        self.entries = entries
+    }
 }
 
 extension EntriesState: Equatable {
-    static func == (lhs: EntriesState, rhs: EntriesState) -> Bool {
+    public static func == (lhs: EntriesState, rhs: EntriesState) -> Bool {
         return lhs.entries == rhs.entries
     }
 }
 
 
-let entriesReducer = Reducer<EntriesState, EntryAction, EntriesEnvironment> { state, action, _ in
+public let entriesReducer = Reducer<EntriesState, EntryAction, EntriesEnvironment> { state, action, _ in
   switch action {
   case let .createEntry(entryText, entryDate, promptId, entryId):
       let entry = Entry(text: entryText, date: entryDate, promptId: promptId, id: entryId)

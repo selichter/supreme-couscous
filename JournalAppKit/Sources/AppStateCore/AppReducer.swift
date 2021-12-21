@@ -1,21 +1,42 @@
 //
-//  AppState.swift
+//  AppReducer.swift
 //  JournalApp
 //
 //  Created by Sarah Lichter on 12/16/21.
 //
 
 import Foundation
-import SwiftUI
-import Models
 import ComposableArchitecture
+import PromptsCore
+import EntriesCore
+import Models
 
 
-struct AppState {
-    var displayPrompt: Prompt = Prompt(text: "What are you looking to gain from building a journaling habit?",
+public let appReducer = Reducer.combine(
+    promptReducer.pullback(
+        state: \AppState.prompts,
+        action: /AppAction.prompt,
+        environment: { (_: AppEnvironment) in PromptsEnvironment() }
+    ),
+    entriesReducer.pullback(
+        state: \AppState.entries,
+        action: /AppAction.entry,
+        environment: { (_: AppEnvironment) in EntriesEnvironment() }
+    )
+)
+
+
+public enum AppAction {
+    case prompt(PromptsAction)
+    case entry(EntryAction)
+}
+
+
+public struct AppState {
+    public var displayPrompt: Prompt = Prompt(text: "What are you looking to gain from building a journaling habit?",
                                        category: Category.selfDiscovery)
-    var usedPrompts: [Prompt] = []
-    var promptBacklog: [Prompt] = [Prompt(text: "What do I know to be true that I didn’t know a year ago?",
+    public var usedPrompts: [Prompt] = []
+    public var promptBacklog: [Prompt] = [Prompt(text: "What do I know to be true that I didn’t know a year ago?",
                                           category: Category.selfDiscovery),
                                    Prompt(text: "What distractions get in the way of being my most productive?", category: Category.health),
                                    Prompt(text: "When do I feel most in tune with myself?",
@@ -39,9 +60,9 @@ struct AppState {
                                    Prompt(text: "What is causing these feelings?",
                                           category: Category.managingEmotions)]
     
-    var appEntries: [Entry] = []
+    public var appEntries: [Entry] = []
     
-    var prompts: PromptsState {
+    public var prompts: PromptsState {
         get {
             .init(promptBacklog: self.promptBacklog,
                   displayPrompt: self.displayPrompt,
@@ -54,7 +75,7 @@ struct AppState {
         }
     }
     
-    var entries: EntriesState {
+    public var entries: EntriesState {
         get {
             .init(entries: self.appEntries)
         }
@@ -63,14 +84,19 @@ struct AppState {
         }
     }
     
+    public init() { }
+
+    
 }
 
 extension AppState: Equatable {
-    static func == (lhs: AppState, rhs: AppState) -> Bool {
+    public static func == (lhs: AppState, rhs: AppState) -> Bool {
         return lhs.displayPrompt == rhs.displayPrompt &&
         lhs.promptBacklog == rhs.promptBacklog &&
         lhs.usedPrompts == rhs.usedPrompts
     }
 }
 
-struct AppEnvironment {}
+public struct AppEnvironment {
+    public init() {}
+}

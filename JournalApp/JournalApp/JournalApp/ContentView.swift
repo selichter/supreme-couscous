@@ -8,6 +8,8 @@
 import SwiftUI
 import Models
 import ComposableArchitecture
+import PromptsCore
+import AppStateCore
 
 struct ContentView: View {
     let store: Store<AppState, AppAction>

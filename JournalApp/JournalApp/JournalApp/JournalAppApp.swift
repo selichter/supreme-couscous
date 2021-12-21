@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import AppStateCore
 
 @main
 struct JournalAppApp: App {
