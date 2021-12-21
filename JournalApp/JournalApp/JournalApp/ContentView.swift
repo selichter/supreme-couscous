@@ -22,8 +22,11 @@ struct ContentView: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(store: Store(
+            initialState: AppState(),
+            reducer: appReducer,
+            environment: AppEnvironment()))
+    }
+}

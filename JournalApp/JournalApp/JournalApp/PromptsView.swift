@@ -93,9 +93,12 @@ struct PromptsView: View {
             
     }
 }
-//
-//struct PromptsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PromptsView(store: Store(value: AppState(), reducer: appReducer))
-//    }
-//}
+
+struct PromptsView_Previews: PreviewProvider {
+    static var previews: some View {
+        PromptsView(store: Store(
+            initialState: AppState(),
+            reducer: appReducer,
+            environment: AppEnvironment()), displayPrompt: Prompt(text: "Display", category: Category.money))
+    }
+}

@@ -48,9 +48,7 @@ struct HomeView: View {
                         }
                         .foregroundColor(.white)
                         .padding(Spacing.defaultViewMargin)
-                        .background(
-                            RoundedRectangle(cornerRadius: 8).fill(.black)
-                        )
+                        .background(RoundedRectangle(cornerRadius: 8).fill(.black))
                         }
                     }
                     
@@ -74,8 +72,11 @@ struct HomeView: View {
     }
 }
 
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeView(store: Store(value: AppState(), reducer: appReducer))
-//    }
-//}
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView(store: Store(
+            initialState: AppState(),
+            reducer: appReducer,
+            environment: AppEnvironment()))
+    }
+}
