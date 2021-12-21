@@ -47,16 +47,16 @@ class JournalAppUITests: XCTestCase {
         let entryTextView = app.textViews["entryTextfield"]
         entryTextView.doubleTap()
         entryTextView.typeText(entryText)
-//        app.buttons["Save Entry"].tap()
-//
-//        XCTAssertEqual(app.staticTexts["count"].label, "1")
-//        let dateformat = DateFormatter()
-//        dateformat.dateFormat = "MMM dd, yyyy"
-//        let expectedDate = dateformat.string(from: Date())
-//        XCTAssertEqual(app.staticTexts["lastUsed"].label, expectedDate)
+        app.buttons["Save Entry"].tap()
+
+        XCTAssertEqual(app.staticTexts["count"].label, "1")
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "MMM dd, yyyy"
+        let expectedDate = dateformat.string(from: Date())
+        XCTAssertEqual(app.staticTexts["lastUsed"].label, expectedDate)
         
         app.navigationBars.buttons["Back"].tap()
-//        XCTAssert(app.staticTexts[entryText].exists)
+        XCTAssert(app.staticTexts[entryText].exists)
     }
 
 }

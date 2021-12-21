@@ -16,13 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            HomeView(
-                store: self.store
-                            .scope(
-                              state: \.prompts,
-                              action: AppAction.prompt
-                            )
-                        )
+            HomeView(store: store)
         }
         
     }
