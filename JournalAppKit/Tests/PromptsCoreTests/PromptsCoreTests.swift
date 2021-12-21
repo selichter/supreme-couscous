@@ -1,17 +1,17 @@
 //
-//  PromptReducerTests.swift
-//  JournalAppTests
+//  File.swift
+//  
 //
-//  Created by Sarah Lichter on 12/16/21.
+//  Created by Sarah Lichter on 12/20/21.
 //
 
+@testable import PromptsCore
 import XCTest
-@testable import JournalApp
-import Models
 import ComposableArchitecture
+import Models
+import AppStateCore
 
-class PromptReducerTests: XCTestCase {
-    let expectedPromptText = "What are you looking to gain from building a journaling habit?"
+class PromptCoreTests: XCTestCase {
     let initialDisplayPrompt = Prompt(text: "A test Prompt", category: Category.health)
     let promptTwo = Prompt(text: "Second Prompt", category: Category.money)
     let promptThree = Prompt(text: "Third Prompt", category: Category.managingEmotions)

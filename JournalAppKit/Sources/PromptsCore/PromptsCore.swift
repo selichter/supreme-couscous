@@ -1,8 +1,8 @@
 //
-//  PromptReducer.swift
-//  JournalApp
+//  File.swift
+//  
 //
-//  Created by Sarah Lichter on 12/16/21.
+//  Created by Sarah Lichter on 12/20/21.
 //
 
 import Foundation
@@ -10,24 +10,33 @@ import Models
 import ComposableArchitecture
 
 
-struct PromptsEnvironment { }
+public struct PromptsEnvironment {
+    public init() {}
+}
 
-
-struct PromptsState {
-    var promptBacklog: [Prompt] = []
-    var displayPrompt: Prompt
-    var usedPrompts: [Prompt] = []
+public struct PromptsState {
+    public var promptBacklog: [Prompt] = []
+    public var displayPrompt: Prompt
+    public var usedPrompts: [Prompt] = []
+    
+    public init(promptBacklog: [Prompt],
+                displayPrompt: Prompt,
+                usedPrompts: [Prompt]) {
+        self.promptBacklog = promptBacklog
+        self.usedPrompts = usedPrompts
+        self.displayPrompt = displayPrompt
+    }
 }
 
 extension PromptsState: Equatable {
-    static func == (lhs: PromptsState, rhs: PromptsState) -> Bool {
+    public static func == (lhs: PromptsState, rhs: PromptsState) -> Bool {
         return lhs.displayPrompt == rhs.displayPrompt &&
         lhs.usedPrompts == rhs.usedPrompts &&
         lhs.promptBacklog == rhs.promptBacklog
     }
 }
 
-enum PromptsAction {
+public enum PromptsAction {
     case advancePrompt
     case markAsUsed(Date)
     case toggleFavorite
@@ -35,7 +44,7 @@ enum PromptsAction {
 }
 
 
-let promptReducer = Reducer<PromptsState, PromptsAction, PromptsEnvironment> { state, action, _ in
+public let promptReducer = Reducer<PromptsState, PromptsAction, PromptsEnvironment> { state, action, _ in
   switch action {
   case .advancePrompt:
       state.usedPrompts.append(state.displayPrompt)
@@ -61,3 +70,4 @@ let promptReducer = Reducer<PromptsState, PromptsAction, PromptsEnvironment> { s
       return .none
   }
 }
+

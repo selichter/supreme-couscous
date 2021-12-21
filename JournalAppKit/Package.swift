@@ -5,25 +5,52 @@ import PackageDescription
 
 let package = Package(
     name: "JournalAppKit",
+    platforms: [
+      .iOS(.v14)
+    ],
     products: [
         .library(name: "JournalAppKit", targets: ["JournalAppKit"]),
         .library(name: "Models", targets: ["Models"]),
-        .library(name: "DateHelpers", targets: ["DateHelpers"])
+        .library(name: "DateHelpers", targets: ["DateHelpers"]),
+        .library(name: "PromptsCore", targets: ["PromptsCore"]),
+        .library(name: "AppStateCore", targets: ["AppStateCore"]),
+        .library(name: "EntriesCore", targets: ["EntriesCore"])
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "0.9.0"),
     ],
     targets: [
-        .target(name: "JournalAppKit", dependencies: []),
         .target(name: "Models"),
+        .target(name: "JournalAppKit"),
+        .testTarget(
+            name: "JournalAppKitTests",
+            dependencies: ["JournalAppKit"]),
+        
         .target(name: "DateHelpers"),
         .testTarget(
             name: "DateHelpersTests",
             dependencies: ["DateHelpers"]),
-        .testTarget(
-            name: "JournalAppKitTests",
-            dependencies: ["JournalAppKit"])
         
+        .target(name: "PromptsCore",
+                dependencies: ["Models",
+                                .product(name: "ComposableArchitecture",
+                                         package: "swift-composable-architecture")]),
+        .testTarget(
+            name: "PromptsCoreTests",
+            dependencies: ["PromptsCore", "AppStateCore"]),
+        
+        .target(name: "AppStateCore",
+                dependencies: ["Models", "PromptsCore", "EntriesCore",
+                                .product(name: "ComposableArchitecture",
+                                         package: "swift-composable-architecture")]),
+    
+        .target(name: "EntriesCore",
+                dependencies: ["Models",
+                                .product(name: "ComposableArchitecture",
+                                         package: "swift-composable-architecture")]),
+        .testTarget(
+            name: "EntriesCoreTests",
+            dependencies: ["EntriesCore", "AppStateCore"]),
+
     ]
 )

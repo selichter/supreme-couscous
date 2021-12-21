@@ -1,16 +1,17 @@
 //
-//  EntryReducerTests.swift
-//  JournalAppTests
+//  File.swift
+//  
 //
-//  Created by Sarah Lichter on 12/16/21.
+//  Created by Sarah Lichter on 12/20/21.
 //
 
 import XCTest
 import ComposableArchitecture
 import Models
-@testable import JournalApp
+@testable import EntriesCore
+import AppStateCore
 
-class EntryReducerTests: XCTestCase {
+class EntriesCoreTests: XCTestCase {
 
     func testCreateEntryAddsEntryToEntriesInState() {
         
