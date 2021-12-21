@@ -14,13 +14,15 @@ let package = Package(
         .library(name: "DateHelpers", targets: ["DateHelpers"]),
         .library(name: "PromptsCore", targets: ["PromptsCore"]),
         .library(name: "AppStateCore", targets: ["AppStateCore"]),
-        .library(name: "EntriesCore", targets: ["EntriesCore"])
+        .library(name: "EntriesCore", targets: ["EntriesCore"]),
+        .library(name: "Styleguide", targets: ["Styleguide"])
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "0.9.0"),
     ],
     targets: [
         .target(name: "Models"),
+        .target(name: "Styleguide"),
         .target(name: "JournalAppKit"),
         .testTarget(
             name: "JournalAppKitTests",

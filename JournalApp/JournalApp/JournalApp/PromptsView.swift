@@ -12,6 +12,7 @@ import DateHelpers
 import PromptsCore
 import AppStateCore
 import EntriesCore
+import Styleguide
 
 struct PromptsView: View {
     let store: Store<AppState, AppAction>
