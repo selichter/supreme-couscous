@@ -60,9 +60,21 @@ struct HomeView: View {
                                 Spacer()
                                 Text(entry.date.getFormattedDate(format: "MMM dd, yyyy"))
                             }
-    
                         }
-    
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text("Browse Categories")
+                            ScrollView(.horizontal) {
+                                HStack {
+                                    ForEach(Category.allCases, id: \.self) { category in
+                                        NavigationLink(destination: CategoryDetailView(category: category.rawValue)) {
+                                            Text(category.rawValue)
+                                                .accessibilityIdentifier("category\(category.rawValue)")
+                                        }
+                                    }
+                                }
+                            }.accessibility(identifier: "categoryScroll")
                     }
                 }
                 .padding(Spacing.defaultViewMargin/2)

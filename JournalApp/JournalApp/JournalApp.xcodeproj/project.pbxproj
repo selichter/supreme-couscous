@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF6D12E227723DA0003DB090 /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = DF6D12E127723DA0003DB090 /* Styleguide */; };
+		DF6D12E427724A8D003DB090 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6D12E327724A8D003DB090 /* CategoryDetailView.swift */; };
 		DF7735CE276D144800D0ED45 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = DF7735CD276D144800D0ED45 /* ComposableArchitecture */; };
 		DF7735D32771361600D0ED45 /* DateHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = DF7735D22771361600D0ED45 /* DateHelpers */; };
 		DF7735D52771611500D0ED45 /* PromptsCore in Frameworks */ = {isa = PBXBuildFile; productRef = DF7735D42771611500D0ED45 /* PromptsCore */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF6D12E327724A8D003DB090 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 		DF8266C2276C21170011E887 /* JournalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JournalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8266C5276C21170011E887 /* JournalAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalAppApp.swift; sourceTree = "<group>"; };
 		DF8266C7276C21170011E887 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				DF8266CB276C211B0011E887 /* Preview Content */,
 				DF826728276C2D920011E887 /* PromptsView.swift */,
 				DF82672A276C2DB20011E887 /* HomeView.swift */,
+				DF6D12E327724A8D003DB090 /* CategoryDetailView.swift */,
 			);
 			path = JournalApp;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				DF82672B276C2DB20011E887 /* HomeView.swift in Sources */,
 				DF826729276C2D920011E887 /* PromptsView.swift in Sources */,
 				DF8266C6276C21170011E887 /* JournalAppApp.swift in Sources */,
+				DF6D12E427724A8D003DB090 /* CategoryDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

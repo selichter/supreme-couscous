@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Category: String {
+public enum Category: String, CaseIterable {
     case health = "Health",
          relationships = "Relationships",
          money = "Money",
