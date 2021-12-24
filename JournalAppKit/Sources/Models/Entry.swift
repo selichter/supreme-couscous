@@ -15,7 +15,8 @@ public struct Entry: Identifiable {
     
     public init(text: String,
                 date: Date,
-                promptId: UUID, id: UUID) {
+                promptId: UUID,
+                id: UUID) {
         self.text = text
         self.date = date
         self.promptId = promptId

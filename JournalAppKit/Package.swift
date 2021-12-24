@@ -15,7 +15,8 @@ let package = Package(
         .library(name: "PromptsCore", targets: ["PromptsCore"]),
         .library(name: "AppStateCore", targets: ["AppStateCore"]),
         .library(name: "EntriesCore", targets: ["EntriesCore"]),
-        .library(name: "Styleguide", targets: ["Styleguide"])
+        .library(name: "Styleguide", targets: ["Styleguide"]),
+        .library(name: "CategoriesCore", targets: ["CategoriesCore"])
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "0.9.0"),
@@ -42,7 +43,10 @@ let package = Package(
             dependencies: ["PromptsCore", "AppStateCore"]),
         
         .target(name: "AppStateCore",
-                dependencies: ["Models", "PromptsCore", "EntriesCore",
+                dependencies: ["Models",
+                               "PromptsCore",
+                               "EntriesCore",
+                               "CategoriesCore",
                                 .product(name: "ComposableArchitecture",
                                          package: "swift-composable-architecture")]),
     
@@ -53,6 +57,12 @@ let package = Package(
         .testTarget(
             name: "EntriesCoreTests",
             dependencies: ["EntriesCore", "AppStateCore"]),
-
+        .target(name: "CategoriesCore",
+                dependencies: ["Models",
+                                .product(name: "ComposableArchitecture",
+                                         package: "swift-composable-architecture")]),
+        .testTarget(
+            name: "CategoriesCoreTests",
+            dependencies: ["CategoriesCore", "AppStateCore"]),
     ]
 )

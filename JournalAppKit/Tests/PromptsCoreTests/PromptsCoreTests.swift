@@ -21,30 +21,12 @@ class PromptCoreTests: XCTestCase {
         
         XCTAssertEqual(appState.displayPrompt.text,  "What are you looking to gain from building a journaling habit?")
         XCTAssertEqual(appState.promptBacklog.count, 12)
-        XCTAssertEqual(appState.usedPrompts, [])
-    }
-    
-    
-    func testAdvancePromptActionSetsNewDisplayPrompt() {
-        var state = AppState()
-        state.displayPrompt = initialDisplayPrompt
-        state.promptBacklog = [promptTwo, promptThree]
-        let store = TestStore(
-            initialState: state,
-            reducer: appReducer,
-            environment: AppEnvironment()
-        )
-        
-        store.send(.prompt(.advancePrompt)) {
-            $0.displayPrompt = self.promptTwo
-            $0.usedPrompts = [self.initialDisplayPrompt]
-            $0.promptBacklog = [self.promptThree]
-        }
-        
     }
     
     func testMarkAsUsedActionSetsTheDateAndCountForDisplayPrompt() {
-        let state = AppState()
+        var state = AppState()
+        state.promptBacklog = [self.initialDisplayPrompt]
+        state.displayPrompt = self.initialDisplayPrompt
         let store = TestStore(
             initialState: state,
             reducer: appReducer,
@@ -52,13 +34,12 @@ class PromptCoreTests: XCTestCase {
         )
         let date = Date()
         store.send(.prompt(.markAsUsed(date))) {
-            $0.displayPrompt.lastUsed = date
-            $0.displayPrompt.timesUsed = 1
+            $0.promptBacklog[0].lastUsed = date
+            $0.promptBacklog[0].timesUsed = 1
         }
     }
 
     func testToggleFavoriteSetsFavoriteToTrueIfItIsInitiallyFalse() {
-        
         let state = AppState()
         let store = TestStore(
             initialState: state,
@@ -72,7 +53,6 @@ class PromptCoreTests: XCTestCase {
     }
 
     func testToggleFavoriteSetsFavoriteToTrueIfItIsInitiallyTrue() {
-        
         var state = AppState()
         state.displayPrompt.isFavorite = true
         let store = TestStore(
@@ -87,10 +67,9 @@ class PromptCoreTests: XCTestCase {
     }
     
     func testRefreshPromptSetsNewDisplayPromtButDoesNotAdvance() {
-        
         var state = AppState()
         state.displayPrompt = initialDisplayPrompt
-        state.promptBacklog = [promptTwo, promptThree]
+        state.promptBacklog = [promptTwo]
         let store = TestStore(
             initialState: state,
             reducer: appReducer,
@@ -99,7 +78,7 @@ class PromptCoreTests: XCTestCase {
 
         store.send(.prompt(.refreshPrompt)) {
             $0.displayPrompt = self.promptTwo
-            $0.promptBacklog = [self.promptThree, self.initialDisplayPrompt]
+            $0.promptBacklog = [self.promptTwo, self.initialDisplayPrompt]
         }
     }
 
