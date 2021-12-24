@@ -6,13 +6,38 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+import AppStateCore
+import Models
+import Styleguide
 
 struct CategoryDetailView: View {
+    let store: Store<AppState, AppAction>
     let category: String
+    
     var body: some View {
-        VStack {
-            Text("Category Detail")
-            Text(category)
+        WithViewStore(self.store) { viewStore in
+            VStack(alignment: .leading, spacing: 16) {
+                HStack {
+                    Spacer()
+                    Text(category)
+                        .font(.largeTitle)
+                        .bold()
+                    Spacer()
+                }.padding(.bottom)
+                
+                
+                Text("Prompts in Category:")
+                    .font(.title3)
+                    .bold()
+                ForEach(viewStore.prompts.promptBacklog.filter{ $0.category.rawValue == category }) { prompt in
+                    if prompt.category.rawValue == category {
+                        Text(prompt.text)
+                    }
+                }
+                Spacer()
+            }.padding(Spacing.defaultViewMargin)
+
         }
         
     }
@@ -20,6 +45,10 @@ struct CategoryDetailView: View {
 
 struct CategoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryDetailView(category: "A category")
+        CategoryDetailView(
+                           store: Store(
+            initialState: AppState(),
+            reducer: appReducer,
+            environment: AppEnvironment()), category: "A category")
     }
 }

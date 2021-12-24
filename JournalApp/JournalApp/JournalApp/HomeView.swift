@@ -19,7 +19,7 @@ struct HomeView: View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
                 ScrollView(.vertical) {
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 16) {
                         Text("Prompted")
                             .font(.largeTitle)
                             .bold()
@@ -54,6 +54,8 @@ struct HomeView: View {
                     
                     VStack(alignment: .leading) {
                         Text("Recent Entries")
+                            .font(.title3)
+                            .bold()
                         ForEach(viewStore.appEntries) { entry in
                             HStack {
                                 Text(entry.text)
@@ -61,14 +63,18 @@ struct HomeView: View {
                                 Text(entry.date.getFormattedDate(format: "MMM dd, yyyy"))
                             }
                         }
-                    }
+                    }.padding(.bottom)
+                    
                     
                     VStack(alignment: .leading) {
                         Text("Browse Categories")
+                            .font(.title3)
+                            .bold()
+                        
                             ScrollView(.horizontal) {
                                 HStack {
                                     ForEach(Category.allCases, id: \.self) { category in
-                                        NavigationLink(destination: CategoryDetailView(category: category.rawValue)) {
+                                        NavigationLink(destination: CategoryDetailView(store: store, category: category.rawValue)) {
                                             Text(category.rawValue)
                                                 .accessibilityIdentifier("category\(category.rawValue)")
                                         }
@@ -77,7 +83,7 @@ struct HomeView: View {
                             }.accessibility(identifier: "categoryScroll")
                     }
                 }
-                .padding(Spacing.defaultViewMargin/2)
+                .padding(Spacing.defaultViewMargin)
             }
 
         }

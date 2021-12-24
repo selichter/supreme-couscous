@@ -10,6 +10,7 @@ import ComposableArchitecture
 import PromptsCore
 import EntriesCore
 import Models
+import CategoriesCore
 
 
 public let appReducer = Reducer.combine(
@@ -22,6 +23,11 @@ public let appReducer = Reducer.combine(
         state: \AppState.entries,
         action: /AppAction.entry,
         environment: { (_: AppEnvironment) in EntriesEnvironment() }
+    ),
+    categoryReducer.pullback(
+        state: \AppState.selectedCategory,
+        action: /AppAction.category,
+        environment: { (_: AppEnvironment) in CategroyEnvironment() }
     )
 )
 
@@ -29,13 +35,13 @@ public let appReducer = Reducer.combine(
 public enum AppAction {
     case prompt(PromptsAction)
     case entry(EntryAction)
+    case category(CategroyAction)
 }
 
 
 public struct AppState {
     public var displayPrompt: Prompt = Prompt(text: "What are you looking to gain from building a journaling habit?",
                                        category: Category.selfDiscovery)
-    public var usedPrompts: [Prompt] = []
     public var promptBacklog: [Prompt] = [Prompt(text: "What do I know to be true that I didn’t know a year ago?",
                                           category: Category.selfDiscovery),
                                    Prompt(text: "What distractions get in the way of being my most productive?", category: Category.health),
@@ -60,17 +66,17 @@ public struct AppState {
                                    Prompt(text: "What is causing these feelings?",
                                           category: Category.managingEmotions)]
     
+    public var filterPrompots: [Prompt] = []
     public var appEntries: [Entry] = []
+    public var filterCategory: String = Category.all.rawValue
     
     public var prompts: PromptsState {
         get {
             .init(promptBacklog: self.promptBacklog,
-                  displayPrompt: self.displayPrompt,
-                  usedPrompts: self.usedPrompts)
+                  displayPrompt: self.displayPrompt)
         }
         set {
             self.displayPrompt = newValue.displayPrompt
-            self.usedPrompts = newValue.usedPrompts
             self.promptBacklog = newValue.promptBacklog
         }
     }
@@ -84,6 +90,18 @@ public struct AppState {
         }
     }
     
+    public var selectedCategory: CategoriesState {
+        get {
+            .init(filterCategory: self.filterCategory)
+        }
+        set {
+            self.filterCategory = newValue.filterCategroy
+            self.filterPrompots = promptBacklog.filter { $0.category.rawValue == newValue.filterCategroy }
+        }
+    }
+    
+    
+    
     public init() { }
 
     
@@ -92,8 +110,7 @@ public struct AppState {
 extension AppState: Equatable {
     public static func == (lhs: AppState, rhs: AppState) -> Bool {
         return lhs.displayPrompt == rhs.displayPrompt &&
-        lhs.promptBacklog == rhs.promptBacklog &&
-        lhs.usedPrompts == rhs.usedPrompts
+        lhs.promptBacklog == rhs.promptBacklog
     }
 }
 

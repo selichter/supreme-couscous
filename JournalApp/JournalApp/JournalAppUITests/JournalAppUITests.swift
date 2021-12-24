@@ -61,8 +61,9 @@ class JournalAppUITests: XCTestCase {
     
     func testNavigateToCategoryDetailAndVerify() {
         app.scrollViews["categoryScroll"].buttons["categoryHealth"].tap()
-        XCTAssert(app.staticTexts["Category Detail"].exists)
         XCTAssert(app.staticTexts["Health"].exists)
+        XCTAssert(app.staticTexts["Prompts in Category:"].exists)
+        XCTAssert(app.staticTexts["What distractions get in the way of being my most productive?"].exists)
     }
 
 }

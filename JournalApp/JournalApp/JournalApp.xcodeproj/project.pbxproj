@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DF6D12E227723DA0003DB090 /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = DF6D12E127723DA0003DB090 /* Styleguide */; };
 		DF6D12E427724A8D003DB090 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6D12E327724A8D003DB090 /* CategoryDetailView.swift */; };
+		DF6D12E6277262BB003DB090 /* CategoriesCore in Frameworks */ = {isa = PBXBuildFile; productRef = DF6D12E5277262BB003DB090 /* CategoriesCore */; };
 		DF7735CE276D144800D0ED45 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = DF7735CD276D144800D0ED45 /* ComposableArchitecture */; };
 		DF7735D32771361600D0ED45 /* DateHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = DF7735D22771361600D0ED45 /* DateHelpers */; };
 		DF7735D52771611500D0ED45 /* PromptsCore in Frameworks */ = {isa = PBXBuildFile; productRef = DF7735D42771611500D0ED45 /* PromptsCore */; };
@@ -64,6 +65,7 @@
 				DF8266F3276C21A40011E887 /* JournalAppKit in Frameworks */,
 				DF7735CE276D144800D0ED45 /* ComposableArchitecture in Frameworks */,
 				DF7735D9277163E400D0ED45 /* EntriesCore in Frameworks */,
+				DF6D12E6277262BB003DB090 /* CategoriesCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +178,7 @@
 				DF7735D6277163B000D0ED45 /* AppStateCore */,
 				DF7735D8277163E400D0ED45 /* EntriesCore */,
 				DF6D12E127723DA0003DB090 /* Styleguide */,
+				DF6D12E5277262BB003DB090 /* CategoriesCore */,
 			);
 			productName = JournalApp;
 			productReference = DF8266C2276C21170011E887 /* JournalApp.app */;
@@ -422,6 +425,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -451,6 +455,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -549,6 +554,10 @@
 		DF6D12E127723DA0003DB090 /* Styleguide */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Styleguide;
+		};
+		DF6D12E5277262BB003DB090 /* CategoriesCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CategoriesCore;
 		};
 		DF7735CD276D144800D0ED45 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -14,7 +14,6 @@ import AppStateCore
 class EntriesCoreTests: XCTestCase {
 
     func testCreateEntryAddsEntryToEntriesInState() {
-        
         let state = AppState()
         let store = TestStore(
             initialState: state,

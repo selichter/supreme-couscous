@@ -12,5 +12,6 @@ public enum Category: String, CaseIterable {
          relationships = "Relationships",
          money = "Money",
          selfDiscovery = "Self-Discovery",
-         managingEmotions = "Managing Emotions"
+         managingEmotions = "Managing Emotions",
+         all = "All"
 }
