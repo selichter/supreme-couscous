@@ -22,7 +22,7 @@ struct PromptsView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             ScrollView(.vertical){
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: Spacing.stackElementSpacing) {
                     Text(displayPrompt.text)
                         .bold()
                         .multilineTextAlignment(.leading)
@@ -67,7 +67,7 @@ struct PromptsView: View {
                             .font(.caption)
                         TextEditor(text: $textInput)
                             .background(Color.white)
-                            .cornerRadius(Spacing.smallCornerRadius)
+                            .cornerRadius(Spacing.cornerRadus)
                             .foregroundColor(textInput == "Write here..." ? .gray : .black)
                             .accessibilityIdentifier("entryTextfield")
                             .frame(minHeight: 100)

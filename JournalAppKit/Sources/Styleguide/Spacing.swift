@@ -8,11 +8,7 @@
 import SwiftUI
 
 public struct Spacing {
-    public static let smallCornerRadius: CGFloat = 8.0
-    
-    public static let cornerRadus: CGFloat = 16.0
+    public static let cornerRadus: CGFloat = 8.0
     public static let stackElementSpacing: CGFloat = 16.0
-    public static let cardOuterPadding: CGFloat = 16.0
-    
     public static let defaultViewMargin: CGFloat = 24.0
 }

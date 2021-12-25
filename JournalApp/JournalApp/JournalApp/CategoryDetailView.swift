@@ -17,19 +17,16 @@ struct CategoryDetailView: View {
     
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            VStack(alignment: .leading, spacing: 16) {
-                HStack {
-                    Spacer()
-                    Text(category)
-                        .font(.largeTitle)
-                        .bold()
-                    Spacer()
-                }.padding(.bottom)
-                
+            VStack(alignment: .leading, spacing: Spacing.stackElementSpacing) {
+                Text(category)
+                    .font(.largeTitle)
+                    .bold()
+                    .center(.horizontal)
                 
                 Text("Prompts in Category:")
                     .font(.title3)
                     .bold()
+                
                 ForEach(viewStore.prompts.promptBacklog.filter{ $0.category.rawValue == category }) { prompt in
                     if prompt.category.rawValue == category {
                         Text(prompt.text)

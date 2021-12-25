@@ -19,7 +19,7 @@ struct HomeView: View {
         WithViewStore(self.store) { viewStore in
             NavigationView {
                 ScrollView(.vertical) {
-                    VStack(alignment: .leading, spacing: 16) {
+                    VStack(alignment: .leading, spacing: Spacing.stackElementSpacing) {
                         Text("Prompted")
                             .font(.largeTitle)
                             .bold()
@@ -48,7 +48,7 @@ struct HomeView: View {
                         }
                         .foregroundColor(.white)
                         .padding(Spacing.defaultViewMargin)
-                        .background(RoundedRectangle(cornerRadius: 8).fill(.black))
+                        .background(RoundedRectangle(cornerRadius: Spacing.cornerRadus).fill(.black))
                         }
                     }
                     
